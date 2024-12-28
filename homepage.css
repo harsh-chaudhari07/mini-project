@@ -1,0 +1,34 @@
+.header{
+	background-color: #808080;
+	display: flex;
+}
+
+.head_links{
+	margin-left: auto;
+}
+
+.headlines{
+	display: inline-block;
+}
+
+.title{
+	color: white;
+	background-color: #808080;
+}
+
+.content{
+	border-style: solid;
+	border-color: #808080;
+	padding: 30px;
+	line-height: 25px;
+	list-style-type: ">> ";
+}
+
+.bst{
+	position: relative;
+	top: auto;
+	left: auto;
+	border-right: 6px;
+	color: white;
+	background-color: blue;
+}
