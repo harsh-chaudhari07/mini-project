@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gov.in AppStore</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f8fd;
+            color: #003366;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .carousel {
+            position: relative;
+            margin: 20px auto;
+            max-width: 900px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-color: white;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            display: block;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .carousel-button {
+            background-color: rgba(0, 51, 102, 0.8);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            pointer-events: auto;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-button:hover {
+            background-color: #0055cc;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-indicator.active {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Screenshot 2024-12-29 170431.png" alt="Government Logo">
+            <h1>AppStore</h1>
+        </div>
+        <nav>
+            <a href="#">Discover</a>
+            <a href="#">Apps</a>
+            <a href="#">Category</a>
+            <a href="#">For Developers</a>
+            <a href="#">About Gov.in</a>
+        </nav>
+    </header>
+    <div style="font-size: 25px;font-weight: bold;margin-left: 21%;margin-top: 2%;">All Essential Apps. One Single Platform.<br>
+        Join the Aatmanirbhar Movement</div>
+
+    <div class="carousel">
+        <div class="carousel-track">
+            <div class="carousel-slide">
+                <img src="Screenshot 2024-12-29 165342.png" alt="Gov.in App" height="400px">
+            </div>
+            <div class="carousel-slide">
+                <img src="Screenshot 2024-12-29 165403.png" alt="MyGov App" height="400px">
+            </div>
+            <div class="carousel-slide">
+                <img src="Screenshot 2024-12-29 165419.png" alt="Umang App" height="400px">
+            </div>
+        </div>
+        <div class="carousel-buttons">
+            <button class="carousel-button prev">&#10094;</button>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+        <div class="carousel-indicators">
+            <div class="carousel-indicator active" data-slide="0"></div>
+            <div class="carousel-indicator" data-slide="1"></div>
+            <div class="carousel-indicator" data-slide="2"></div>
+        </div>
+    </div>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.carousel-button.next');
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const indicators = Array.from(document.querySelectorAll('.carousel-indicator'));
+
+        let currentIndex = 0;
+
+        const updateSlidePosition = () => {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        };
+
+        const moveToNextSlide = () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlidePosition();
+        };
+
+        const moveToPrevSlide = () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlidePosition();
+        };
+
+        nextButton.addEventListener('click', moveToNextSlide);
+        prevButton.addEventListener('click', moveToPrevSlide);
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlidePosition();
+            });
+        });
+
+        setInterval(moveToNextSlide, 5000); // Auto-scroll every 5 seconds
+    </script>
+
+    <div style="margin-top: 10%;margin-left: 2%;">
+        <img src="111.png">
+    </div>
+    
+    <div style="margin-top:8%;margin-left:2%;margin-bottom: 7%;">
+        <img src="222.png" width="1450px">
+    </div>    
+</body>
+</html>
