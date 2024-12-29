@@ -24,11 +24,13 @@
 	list-style-type: ">> ";
 }
 
+.bst_baap{
+	display: inline-flex;
+}
+
 .bst{
-	position: relative;
-	top: auto;
-	left: auto;
-	border-right: 6px;
+	margin-left: 50px;
+	padding: 10px;
 	color: white;
-	background-color: blue;
+	background-color: #2596be;
 }
